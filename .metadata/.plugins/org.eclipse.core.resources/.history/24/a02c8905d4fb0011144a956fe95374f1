@@ -1,0 +1,9 @@
+function iWantedWindow(){
+	var self=Ti.UI.createWindow({
+		backgroundColor:'white',
+		barColor:'#FF3B5998'
+
+	});
+	return self;
+}
+module.exports=iWantedWindow;
