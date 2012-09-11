@@ -1,0 +1,19 @@
+var iWantedWindow=require('ui/common/iWantedWindow');
+function SettingWindow(title){
+	var self=new iWantedWindow(title);
+	Ti.Facebook.requestWithGraphPath('me?fields=id,name,gender,picture',{},'GET',function(e){
+		if(e.success){
+			Ti.API.info(e);
+			var personal=JSON.parse(e.result);
+			var userImage=Ti.UI.createImageView({
+				url:personal.picture,
+				top:5,
+				left:5
+			})
+			self.add(userImage);
+			
+		}
+	});
+	return self;
+}
+module.exports = SettingWindow;

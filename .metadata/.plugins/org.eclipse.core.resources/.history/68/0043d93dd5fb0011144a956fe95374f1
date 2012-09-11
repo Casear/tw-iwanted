@@ -1,0 +1,10 @@
+
+var iWantedWindow=require('/Resources/ui/common/iWantedWindow');
+function LoginWindow(){
+	var self=new iWantedWindow(L('Login'));
+	return self;
+	
+	
+	
+}
+module.exports=LoginWindow;

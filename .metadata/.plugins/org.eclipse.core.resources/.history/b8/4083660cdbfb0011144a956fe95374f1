@@ -1,0 +1,24 @@
+var iWantedListWindow=require('ui/common/iWantedListWindow');
+var SettingWindow=require('ui/common/SettingWindow');
+function iWantedTabWindow(){
+	var wantedWindow=new iWantedListWindow('Wanted');
+	var settingWindow=new SettingWindow('Setting');
+	
+	var self=Ti.UI.createTabGroup();
+	var settingTab=Ti.UI.createTab({
+		title:'Setting',
+		window:settingWindow
+	});
+	var iwantedTab=Ti.UI.createTab(
+		
+		{
+			title:'Wanted',
+			window:wantedWindow
+			
+		});
+		
+	self.addTab(iwantedTab);
+	self.addTab(settingTab);
+	return self;
+}
+module.exports=iWantedTabWindow;

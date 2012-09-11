@@ -1,0 +1,11 @@
+
+var iWindow=require('/Resources/ui/common/iWantedWindow');
+function LoginWindow(){
+	var self=new iWindow(L('Login'));
+
+	
+	return self;
+	
+	
+	
+}

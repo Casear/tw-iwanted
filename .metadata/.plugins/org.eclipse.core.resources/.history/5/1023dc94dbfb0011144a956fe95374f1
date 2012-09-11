@@ -1,0 +1,29 @@
+var iWantedWindow=require('ui/common/iWantedWindow');
+function SettingWindow(title){
+	Ti.API.info('go2');
+	var self=new iWantedWindow(title);
+	var i=Ti.UI.createButton({
+		title:'123'
+		
+		
+	})
+	self.add(i);
+Ti.API.info('go');
+	Ti.Facebook.requestWithGraphPath('me',{},'GET',function(e){
+		
+		if(e.success){
+			Ti.API.info('S');
+		}else{
+			Ti.API.info('E');
+			
+		}
+		
+	});
+	
+Ti.API.info('go2');
+	return self;
+	
+	
+	
+}
+module.exports = SettingWindow;

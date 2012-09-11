@@ -25,8 +25,21 @@ if (Ti.version < 1.8 ) {
 	//considering tablet to have one dimension over 900px - this is imperfect, so you should feel free to decide
 	//yourself what you consider a tablet form factor for android
 	var isTablet = osname === 'ipad' || (osname === 'android' && (width > 899 || height > 899));
+	Ti.Facebook.appid='234773493299925';
+	Ti.Facebook.addEventListener('login',function(e){
+		if(e.success){
+			var iWantedWindow= require('ui/common/iWantedTabWindow');
+			new iWantedWindow().open();
+		}
+		
+	});
 	
-	var Window = require('ui/common/LoginWindow');
+	if(!Ti.Facebook.loggedIn){
+			Ti.Facebook.authorize();
+	}else{
+		
 	
-	new Window().open();
+		var iWantedWindow= require('ui/common/iWantedTabWindow');
+		new iWantedWindow().open();
+	}
 })();

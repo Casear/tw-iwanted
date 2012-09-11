@@ -1,0 +1,9 @@
+var SettingWindow=require('ui/common/iWantedWindow');
+function SettingWindow(title){
+	var self=new iWantedWindow(title);
+	return self;
+	
+	
+	
+}
+module.exports = SettingWindow;
