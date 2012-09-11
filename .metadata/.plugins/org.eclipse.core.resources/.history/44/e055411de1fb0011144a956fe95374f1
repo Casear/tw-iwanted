@@ -1,0 +1,9 @@
+function iWantedWindow(wtitle){
+	var self=Ti.UI.createWindow({
+	
+		barColor:'#FF3B5998',
+		title:wtitle
+	});
+	return self;
+}
+module.exports=iWantedWindow;

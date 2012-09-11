@@ -1,0 +1,44 @@
+var iWantedWindow=require('ui/common/iWantedWindow');
+function iWantedListWindow(title){
+	var self=new iWantedWindow(title);
+	self.backgroundColor='black';
+	var indicator=Ti.UI.createActivityIndicator({
+		style: Titanium.UI.iPhone.ActivityIndicatorStyle.PLAIN,
+		font : {fontFamily:'Helvetica Neue', fontSize:15,fontWeight:'bold'},
+		
+		message : 'Loading...'
+	});
+	self.add(indicator);
+	indicator.show();
+	var xhr = Titanium.Network.createHTTPClient();
+		xhr.onload = function()
+		{
+			indicator.hide();
+			
+			var wanteds= JSON.parse( this.responseText);
+			
+			for(var wanted in wanteds){
+				
+				Ti.API.log(wanted.title);
+				
+
+				
+			}
+			Titanium.API.info('loaded');
+ 
+		};
+		xhr.onerror = function()
+		{
+			Titanium.API.info('error');
+		};
+		xhr.open("GET","http://tw.iwanted.jit.su/api/wanted");
+		xhr.send();
+	//Ti.Facebook.request()
+	
+	
+	return self;
+	
+	
+	
+}
+module.exports = iWantedListWindow;
